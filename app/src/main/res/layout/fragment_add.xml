@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".data.fragments.add.AddFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <View
+            android:id="@+id/circleColor1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_shape_red" />
+
+        <View
+            android:id="@+id/circleColor2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_shape_green" />
+
+        <View
+            android:id="@+id/circleColor3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_shape_blue" />
+
+        <View
+            android:id="@+id/circleColor4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_shape_yellow" />
+
+        <View
+            android:id="@+id/circleColor5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle_shape_orange" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/NoteTxt"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:gravity="top|start" />
+
+
+
+    <TextView
+        android:id="@+id/selecttimestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text=" 11.00 AM"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:padding="9dp"
+        android:drawableEnd="@drawable/scroll"
+        android:drawablePadding="9dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_below="@+id/NoteTxt" />
+
+    <TextView
+        android:id="@+id/selecttimeend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text=" 11.00 AM"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:padding="9dp"
+        android:drawableEnd="@drawable/scroll"
+        android:drawablePadding="9dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_below="@+id/NoteTxt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="170dp"
+        android:textStyle="bold"
+        android:layout_below="@id/NoteTxt"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Insert"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="200dp"
+        android:background="@drawable/checkmark"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_below="@+id/selecttimestart"
+        android:layout_marginStart="220dp"
+       />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="200dp"
+        android:background="@drawable/crossed"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_below="@+id/selecttimestart"
+        android:layout_marginStart="80dp"
+        />
+
+</RelativeLayout>
+
