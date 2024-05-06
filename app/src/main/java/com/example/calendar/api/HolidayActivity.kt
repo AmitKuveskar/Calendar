@@ -1,8 +1,11 @@
 package com.example.calendar.api
 
+
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +25,7 @@ class HolidayActivity : AppCompatActivity() {
     private lateinit var btnSelectMonth: TextView
     private lateinit var selectMonthTextView: TextView
     private lateinit var images: IntArray
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,7 @@ class HolidayActivity : AppCompatActivity() {
         backButton = findViewById(R.id.Back)
         btnSelectMonth = findViewById(R.id.selectmonth)
         selectMonthTextView = findViewById(R.id.selectmonth)
+        progressBar = findViewById(R.id.progressbar)
 
         // Define images array
         images = intArrayOf(
@@ -74,7 +79,7 @@ class HolidayActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<HolidayPojo?>, response: Response<HolidayPojo?>) {
                 if (response.code()==200 && response.body()!= null){
-
+                    progressBar.visibility = View.GONE
                     val LinearLayoutManager = LinearLayoutManager(this@HolidayActivity)
                     recyclerView.layoutManager= LinearLayoutManager
 
@@ -84,13 +89,14 @@ class HolidayActivity : AppCompatActivity() {
                     Toast.makeText(this@HolidayActivity, "success", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this@HolidayActivity, "error", Toast.LENGTH_SHORT).show()
-
+                    progressBar.visibility = View.GONE
                 }
             }
 
             override fun onFailure(call: Call<HolidayPojo?>, t: Throwable) {
                 Toast.makeText(this@HolidayActivity, "" + t.message, Toast.LENGTH_SHORT)
                     .show()
+                progressBar.visibility = View.GONE
             }
         })
 }

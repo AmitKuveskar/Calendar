@@ -70,4 +70,13 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/jump"/>
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/jump"
+        android:layout_centerHorizontal="true"
+        />
+
+
 </RelativeLayout>

@@ -1,60 +1,47 @@
-
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.viewpager2.widget.ViewPager2
 
-class BackgroundToForegroundTransformer :
-    ViewPager2.PageTransformer {
+class BackgroundToForegroundTransformer: ViewPager2.PageTransformer {
     override fun transformPage(page: View, position: Float) {
-        val mainPageWidthScaleFactor = 3f // Adjust this value to decrease the width of the main card
-        val mainPageWidth = page.width * mainPageWidthScaleFactor
+        // Constants to control rotation and translation
+        val rotationFactor = 15f // Rotation amount in degrees (positive for right swipe, negative for left)
+        val translationFactor = 500f // Translation amount in pixels
+        val opacityThreshold = 0.5f // Position threshold where opacity starts decreasing
 
-        val pageHeight = page.height.toFloat()
+        // Calculate rotation based on position
+        val rotation = rotationFactor * position
 
-        // Scale factor for adjusting the heights of left and right cards
-        val heightScaleFactor = 0.9f // Adjust this value as needed
+        // Calculate horizontal translation based on position
+        val translationX = translationFactor * position
 
-        val scaleFactor = if (position < 0) {
-            (mainPageWidth - position * 0.3f) / mainPageWidth
+        // Set pivot point for rotation to the center of the page
+        page.pivotX = page.width / 2f
+        page.pivotY = page.height / 2f
+
+        // Apply rotation transformation
+        page.rotation = rotation
+
+        // Apply translation transformation
+        page.translationX = translationX
+
+        // Adjust opacity based on position
+        if (position <= -1 || position >= 1) {
+            // Page is off-screen
+            page.alpha = 0f
         } else {
-            (mainPageWidth + position * 0.3f) / mainPageWidth
+            // Page is on-screen
+            if (position < 0) {
+                // Left swipe
+                page.alpha = 1 + position // Decrease opacity as the page is swiped left
+            } else {
+                // Right swipe
+                page.alpha = 1 - position // Decrease opacity as the page is swiped right
+            }
         }
 
-        page.pivotY = pageHeight * 0.5f
-
-        if (position < -1) { // Page is off-screen to the left
-            page.alpha = 0f
-        } else if (position <= 1) { // Page is on-screen
-            page.alpha = 1f
-
-            // Determine if the page is the main card, left card, or right card
-            when {
-                position == 0f -> {
-                    // This is the main card
-                    // Apply specific transformations for the main card here
-                    ViewCompat.setElevation(page, 1f) // Set elevation to bring it to the top
-                }
-                position < 0 -> {
-                    // This is a left card
-                    // Calculate the desired translationX to position it partially under the main card on the left side
-                    page.translationX = -position * mainPageWidth * 0.3f // Adjust this factor to move the left card further outside
-                    ViewCompat.setElevation(page, 0f) // Set elevation to make sure it's below the main card
-                }
-                else -> {
-                    // This is a right card
-                    // Calculate the desired translationX to position it partially under the main card on the right side
-                    page.translationX = -position * mainPageWidth * 0.3f // Adjust this factor to move the right card further outside
-                    ViewCompat.setElevation(page, 0f) // Set elevation to make sure it's below the main card
-                }
-            }
-
-            // Apply scale transformation only to left and right cards
-            if (position != 0f) {
-                page.scaleX = scaleFactor
-                page.scaleY = scaleFactor * heightScaleFactor // Apply the height scale factor
-            }
-        } else { // Page is off-screen to the right
-            page.alpha = 0f
-        }
+        // Elevation for z-index effect (bring active card to the top)
+        ViewCompat.setElevation(page, if (position == 0f) 1f else 0f)
     }
 }
+

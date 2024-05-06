@@ -38,7 +38,6 @@ class AddFragment : Fragment() {
         Note = view.findViewById(R.id.NoteTxt)
 
 
-
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         val cancel = view.findViewById<Button>(R.id.cancel)
@@ -49,6 +48,7 @@ class AddFragment : Fragment() {
 
         Insert.setOnClickListener{
             insertDataToDatabase()
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }
         view.findViewById<View>(R.id.circleColor1).setOnClickListener {
             selectedColor = Color.RED
