@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/styles.xml -->
+<resources>
+    <!-- Define a custom style for the Calendar date text -->
+    <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/white</item> <!-- Set text color to white -->
+        <item name="android:textSize">16sp</item> <!-- Optional: Define text size -->
+        <!-- Add any other attributes you want to customize -->
+    </style>
+</resources>
