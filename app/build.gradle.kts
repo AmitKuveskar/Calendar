@@ -36,8 +36,11 @@ android {
         }
     }
     compileOptions {
+
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
+
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -80,9 +83,14 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
     // Kotlin components
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20")
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+
+
+    implementation ("com.kizitonwose.calendar:view:2.5.1")
+    implementation ("com.kizitonwose.calendar:compose:2.5.1")
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
 
 
 

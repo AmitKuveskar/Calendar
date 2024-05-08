@@ -22,7 +22,7 @@ class Dashboard : AppCompatActivity() {
     private lateinit var handler: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
-//    private lateinit var calendarView: CalendarView
+    private lateinit var calendarView: com.kizitonwose.calendar.view.CalendarView
     private  lateinit var MuhuratBtn:Button
     private lateinit var HolidayBtn:Button
     private lateinit var AddNoteBtn:Button
@@ -36,7 +36,6 @@ class Dashboard : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
         viewPager2 = findViewById(R.id.viewPager2)
-//        calendarView = findViewById(R.id.calendarView)
         MuhuratBtn = findViewById(R.id.Muhurat)
         HolidayBtn = findViewById(R.id.Holiday)
         AddNoteBtn = findViewById(R.id.AppNote)
@@ -46,9 +45,10 @@ class Dashboard : AppCompatActivity() {
 
 
 
+
+
         init()
         setUpTransformer()
-
 
 
         MuhuratBtn.setOnClickListener {
@@ -62,11 +62,7 @@ class Dashboard : AppCompatActivity() {
         }
 
 
-        // Set listener for calendarView to detect month change
-//        calendarView.setOnDateChangeListener { _, year, month, _ ->
-//            updateImagesForMonth(month)
-//            adapter.notifyDataSetChanged()
-//        }
+
 
         roomdb.setOnClickListener {
             val intent = Intent (this@Dashboard, AppNoteActivity::class.java)
@@ -77,6 +73,8 @@ class Dashboard : AppCompatActivity() {
             shareApp()
 
         }
+
+
 
     }
 
@@ -97,10 +95,7 @@ class Dashboard : AppCompatActivity() {
     }
 
 
-//    private fun setUpTransformer() {
-//        val transformer = BackgroundToForegroundTransformer()
-//        viewPager2.setPageTransformer(transformer)
-//    }
+
 
     private fun setUpTransformer() {
         val transformer = DepthPageTransformer()
@@ -134,8 +129,6 @@ class Dashboard : AppCompatActivity() {
 
 
     }
-    
-    
 
 }
 
