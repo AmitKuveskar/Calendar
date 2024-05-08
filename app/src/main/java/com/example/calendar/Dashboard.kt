@@ -22,12 +22,13 @@ class Dashboard : AppCompatActivity() {
     private lateinit var handler: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
-    private lateinit var calendarView: com.kizitonwose.calendar.view.CalendarView
     private  lateinit var MuhuratBtn:Button
     private lateinit var HolidayBtn:Button
     private lateinit var AddNoteBtn:Button
     lateinit var roomdb : Button
     private lateinit var ShareApp: Button
+
+
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -41,6 +42,7 @@ class Dashboard : AppCompatActivity() {
         AddNoteBtn = findViewById(R.id.AppNote)
         roomdb = findViewById(R.id.AppNote)
         ShareApp = findViewById(R.id.ShareApp)
+
 
 
 
@@ -73,7 +75,6 @@ class Dashboard : AppCompatActivity() {
             shareApp()
 
         }
-
 
 
     }
@@ -109,7 +110,6 @@ class Dashboard : AppCompatActivity() {
         handler = Handler(Looper.myLooper()!!)
         imageList = ArrayList()
 
-
         imageList.add(R.drawable.winter)
         imageList.add(R.drawable.summer)
         imageList.add(R.drawable.monsoon)
@@ -125,7 +125,7 @@ class Dashboard : AppCompatActivity() {
         viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
         // Set the initial page for `ViewPager2`
-        viewPager2.setCurrentItem(1, true)
+            viewPager2.setCurrentItem(2, true)
 
 
     }

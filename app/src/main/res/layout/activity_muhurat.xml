@@ -44,4 +44,118 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/monthTabLayout" />
 
+
+
+
+    <LinearLayout
+        android:id="@+id/noDataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/monthTabLayout"
+        android:visibility="gone">
+
+        <!-- First Card -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="4dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/namkaran">
+
+            </com.google.android.material.imageview.ShapeableImageView>
+
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Namkarn"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="120dp"/>
+
+            <TextView
+                android:id="@+id/category1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="No Namkaran Data "
+                android:textColor="@color/black"
+                android:textSize="14dp"
+               />
+
+
+
+        </FrameLayout>
+
+        <!-- Second Card -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="4dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/namkaran">
+
+            </com.google.android.material.imageview.ShapeableImageView>
+
+
+            <TextView
+                android:id="@+id/VehiclePurchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Purchase"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="120dp"/>
+
+            <TextView
+                android:id="@+id/category2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="No Vehicle Purchase Data"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/monthTabLayout"
+        android:layout_centerHorizontal="true"
+        />
+
 </RelativeLayout>
+
+
+

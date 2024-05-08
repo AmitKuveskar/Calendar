@@ -2,7 +2,10 @@ package com.example.calendar.api
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +24,11 @@ class MuhuratActivity : AppCompatActivity() {
     private lateinit var backButton: ImageButton
     private lateinit var images: IntArray
     private lateinit var monthTabLayout: TabLayout
+    private lateinit var noDataLayout: LinearLayout
+    private lateinit var progressBar: ProgressBar
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +37,8 @@ class MuhuratActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rv2)
         backButton = findViewById(R.id.Back2)
         monthTabLayout = findViewById(R.id.monthTabLayout)
+        noDataLayout = findViewById(R.id.noDataLayout)
+        progressBar = findViewById(R.id.progressbar)
 
         // Define images array
         images = intArrayOf(
@@ -99,13 +109,25 @@ class MuhuratActivity : AppCompatActivity() {
                     // Set up RecyclerView with the new data
                     recyclerView.layoutManager = LinearLayoutManager(this@MuhuratActivity)
                     recyclerView.adapter = APIAdapter2(this@MuhuratActivity, data!!, images)
+                    noDataLayout.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                    progressBar.visibility = View.GONE
+
                 } else {
+                    recyclerView.adapter = null
+                    noDataLayout.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     Toast.makeText(this@MuhuratActivity, "Failed to load data for $month", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<MuhuratPojo?>, t: Throwable) {
-                Toast.makeText(this@MuhuratActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                recyclerView.adapter = null
+                noDataLayout.visibility = View.VISIBLE
+                recyclerView.visibility = View.GONE
+                progressBar.visibility = View.GONE
+                Toast.makeText(this@MuhuratActivity, "Error: No data found", Toast.LENGTH_SHORT).show()
             }
         })
     }

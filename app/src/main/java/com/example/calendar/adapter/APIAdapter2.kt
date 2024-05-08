@@ -28,7 +28,7 @@ class APIAdapter2 (private val context: Context, private val MuhuratPojo: Muhura
         val muhuratData = MuhuratPojo[position]
 
         // Set the text for Muhurat and category
-        holder.MuhuratTextView.text = muhuratData.muhurat.toString()
+        holder.MuhuratTextView.text = muhuratData.muhurat.joinToString(separator = ", ")
         holder.CategoryTextView.text = muhuratData.category
 
         // Determine the correct image resource based on the category

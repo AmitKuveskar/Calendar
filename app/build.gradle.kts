@@ -45,6 +45,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
+
 }
 
 
@@ -56,8 +61,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation("androidx.activity:activity:1.9.0")
+    implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("androidx.compose.material3:material3-android:1.2.1")
+    implementation("androidx.activity:activity:1.9.0")
+    implementation("com.google.firebase:protolite-well-known-types:18.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -91,12 +98,16 @@ dependencies {
     implementation ("com.kizitonwose.calendar:view:2.5.1")
     implementation ("com.kizitonwose.calendar:compose:2.5.1")
     coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
-
-
-
+    implementation ("com.github.prolificinteractive:material-calendarview:2.0.1")
 
 
 }
+
+
+
+
+
+
 
 
 

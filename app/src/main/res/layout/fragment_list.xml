@@ -20,11 +20,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_add"
-
         android:layout_marginTop="640dp"
         android:layout_marginLeft="250dp"
-        android:backgroundTint="@color/orange"
+        app:backgroundTint="@color/orange"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/white"
         />
+
+
 
 </RelativeLayout>
