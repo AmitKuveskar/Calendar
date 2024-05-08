@@ -110,8 +110,8 @@ class Dashboard : AppCompatActivity() {
         imageList = ArrayList()
 
 
-        imageList.add(R.drawable.summer)
         imageList.add(R.drawable.winter)
+        imageList.add(R.drawable.summer)
         imageList.add(R.drawable.monsoon)
 
         // Initialize and set the adapter

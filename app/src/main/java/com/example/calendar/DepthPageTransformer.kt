@@ -9,7 +9,7 @@ class DepthPageTransformer : ViewPager2.PageTransformer {
     companion object {
         private const val MIN_SCALE = 0.7f
         private const val MAX_SCALE = 0.8f
-        private const val MIN_FADE = 0.7f
+        private const val MIN_FADE = 0.8f
     }
 
     override fun transformPage(view: View, position: Float) {
